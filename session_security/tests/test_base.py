@@ -27,7 +27,7 @@ class SettingsMixin(object):
         self.max_warn_after = EXPIRE_AFTER * 0.9
         self.min_expire_after = EXPIRE_AFTER
         self.max_expire_after = EXPIRE_AFTER * 1.5
-        super(SettingsMixin, self).setUp()
+        super().setUp()
 
 
 class BaseLiveServerTestCase(SettingsMixin, StaticLiveServerTestCase,
@@ -41,7 +41,7 @@ class BaseLiveServerTestCase(SettingsMixin, StaticLiveServerTestCase,
 
         options = FirefoxOptions()
         options.add_argument("--headless")
-        super(LiveServerTestCase, self).setUp()
+        super().setUp()
         self.sel= webdriver.Firefox(options=options)
         self.sel.get('%s%s' % (self.live_server_url, '/admin/'))
         self.sel.find_element_by_name('username').send_keys('test')
@@ -56,4 +56,4 @@ class BaseLiveServerTestCase(SettingsMixin, StaticLiveServerTestCase,
         self.sel.quit()
     @classmethod
     def tearDownClass(cls):
-        super(BaseLiveServerTestCase, cls).tearDownClass()
+        super().tearDownClass()
