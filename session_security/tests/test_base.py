@@ -36,7 +36,7 @@ class BaseLiveServerTestCase(SettingsMixin, StaticLiveServerTestCase,
     fixtures = ['session_security_test_user']
 
     def setUp(self):
-        SettingsMixin.setUp(self)
+        super().setUp()
         from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
         options = FirefoxOptions()
